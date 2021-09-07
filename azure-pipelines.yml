@@ -34,5 +34,5 @@ steps:
 - task: Bash@3
   displayName: 'Run script in build-ios.sh file'
   inputs:
-    filePath: '**/build-ios.sh'
+    filePath: 'net5/build-ios.sh'
     arguments: '"net5/net5.iOS/net5.iOS.csproj" "Debug" "iPhoneSimulator"'
