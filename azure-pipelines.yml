@@ -10,27 +10,6 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-# To manually select a Xamarin SDK version on the Microsoft-hosted macOS agent,
-# configure this task with the *Mono* version that is associated with the
-# Xamarin SDK version that you need, and set the "enabled" property to true.
-# See https://go.microsoft.com/fwlink/?linkid=871629
-- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_12_0
-  displayName: 'Select the Xamarin SDK version'
-  enabled: false
-
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '**/*.sln'
-
-- task: XamariniOS@2
-  inputs:
-    solutionFile: '**/*.sln'
-    configuration: 'Release'
-    buildForSimulator: true
-    packageApp: false
-
 - task: UseDotNet@2
   displayName: 'Use .NET Core sdk 5.0.100'
   inputs:
@@ -43,3 +22,10 @@ steps:
   inputs:
     command: restore
     projects: '**/*.csproj'
+
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '**/*.sln'
+    configuration: 'Release'
+    buildForSimulator: true
+    packageApp: false
