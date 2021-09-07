@@ -17,9 +17,15 @@ steps:
     version: '5.0.400'
     includePreviewVersions: true
 
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '**/*.sln'
+    configuration: 'Release'
+    packageApp: true
+    runNugetRestore: false
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
-    command: restore
-    projects: '*.sln'
-
+    command: build
+    projects: '**/net5.csproj'
