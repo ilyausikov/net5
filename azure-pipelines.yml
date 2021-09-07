@@ -22,10 +22,15 @@ steps:
     solutionFile: '**/*.sln'
     configuration: 'Release'
     packageApp: true
-    runNugetRestore: false
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
+  inputs:
+    command: restore
+    projects: '**/net5.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
   inputs:
     command: build
     projects: '**/net5.csproj'
