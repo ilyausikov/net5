@@ -20,7 +20,6 @@ Global
 		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{D1290E25-A699-4167-81B3-4EB4B540F7B7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
