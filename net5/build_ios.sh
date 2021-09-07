@@ -6,4 +6,4 @@
 #$5 Sign Identity Certificate
 #$6 Provisioning Profile UUID
 
-mono /Applications/Visual\ Studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll /t:Build "$1" /p:Configuration="$2" /p:Platform="$3" /p:buildForSimulator=false
+mono /Applications/Visual\ Studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll /t:Build "$1" /p:Configuration="$2" /p:Platform="$3" /p:buildForSimulator=true
