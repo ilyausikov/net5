@@ -15,7 +15,7 @@ steps:
   enabled: true
 
 - script: dotnet tool update --global boots
-- script: boots --stable XamariniOS
+- script: boots --version 14.16 Xamarin.iOS
 
 - task: NuGetToolInstaller@1
   displayName: 'NugetTool install'
