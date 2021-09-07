@@ -23,13 +23,6 @@ steps:
     command: restore
     projects: '**/*.csproj'
 
-- task: MSBuild@1
-  inputs:
-    solution: '**/*.sln'
-    clean: true
-    restoreNugetPackages: true
-    msbuildVersion: '16.0'
-
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*.sln'
