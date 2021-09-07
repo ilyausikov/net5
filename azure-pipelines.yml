@@ -10,21 +10,26 @@ pool:
   vmImage: 'macOS-10.15'
 
 steps:
-
 - task: UseDotNet@2
   displayName: 'Use .NET Core sdk 5.0.400'
   inputs:
     packageType: 'sdk'
     version: '5.0.400'
     includePreviewVersions: true
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln'
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
     command: restore
     projects: '**/*.csproj'
+
+- task: MSBuild@1
+  inputs:
+    solution: '**/*.sln'
+    clean: true
+    restoreNugetPackages: true
+    msbuildVersion: '16.0'
+
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*.sln'
