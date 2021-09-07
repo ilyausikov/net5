@@ -30,3 +30,10 @@ steps:
   displayName: 'NuGet restore'
   inputs:
     restoreSolution: '**/*.sln'
+
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '**/*.sln'
+    configuration: 'Debug'
+    packageApp: false
+    runNugetRestore: false
