@@ -10,30 +10,23 @@ pool:
   vmImage: 'macOS-10.15'
 
 steps:
+- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 6_12_0
+  displayName: 'Select the Xamarin SDK version'
+  enabled: true
+
+- script: dotnet tool update --global boots
+- script: boots --stable XamariniOS
+
+- task: NuGetToolInstaller@1
+  displayName: 'NugetTool install'
+
 - task: UseDotNet@2
-  displayName: 'Use .NET Core sdk 5.0.400'
+  displayName: 'Use .NET Core SDK 5.x'
   inputs:
-    packageType: 'sdk'
-    version: '5.0.400'
+    version: 5.x
     includePreviewVersions: true
 
-- task: XamariniOS@2
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
   inputs:
-    solutionFile: '**/*.sln'
-    configuration: 'Debug'
-    packageApp: true
-    runNugetRestore: false
-    args: '$(system.defaultworkingdirectory)/msbuild'
-
-
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet restore'
-  inputs:
-    command: restore
-    projects: '**/net5.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
-  inputs:
-    command: build
-    projects: '**/net5.csproj'
+    restoreSolution: '**/*.sln'
