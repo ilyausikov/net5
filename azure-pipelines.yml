@@ -20,7 +20,7 @@ steps:
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*.sln'
-    configuration: 'Release'
+    configuration: 'Debug'
     packageApp: true
     runNugetRestore: false
     args: '$(system.defaultworkingdirectory)/msbuild'
