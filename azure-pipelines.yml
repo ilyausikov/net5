@@ -57,7 +57,7 @@ steps:
     #platform: # Optional
     #configuration: # Optional
     #msbuildArguments: # Optional
-    #clean: false # Optional
+    clean: true
     #maximumCpuCount: false # Optional
     #restoreNugetPackages: false # Optional
     #logProjectEvents: false # Optional
