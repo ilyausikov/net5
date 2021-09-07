@@ -21,5 +21,5 @@ steps:
   displayName: 'dotnet restore'
   inputs:
     command: build
-    projects: '**/*.csproj'
+    projects: '**/net5.csproj'
 
