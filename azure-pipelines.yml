@@ -18,13 +18,6 @@ steps:
   displayName: 'Select the Xamarin SDK version'
   enabled: true
 
-- task: XamariniOS@2
-  inputs:
-    solutionFile: '**/*.sln'
-    configuration: 'Release'
-    buildForSimulator: true
-    packageApp: false
-
 - task: UseDotNet@2
   displayName: 'Use .NET Core sdk 5.0.100'
   inputs:
@@ -38,6 +31,13 @@ steps:
   inputs:
     command: restore
     projects: '**/*.csproj'
+
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '**/*.sln'
+    configuration: 'Release'
+    buildForSimulator: true
+    packageApp: false
 
 # MSBuild
 # Build with MSBuild
