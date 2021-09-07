@@ -20,6 +20,6 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
-    command: build
-    projects: '**/net5.csproj'
+    command: restore
+    projects: '*.sln'
 
