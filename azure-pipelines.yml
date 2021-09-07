@@ -7,42 +7,28 @@ trigger:
 - main
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'macOS-10.15'
 
 steps:
+
 - task: UseDotNet@2
   displayName: 'Use .NET Core sdk 5.0.400'
   inputs:
     packageType: 'sdk'
     version: '5.0.400'
     includePreviewVersions: true
-
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
     command: restore
     projects: '**/*.csproj'
-
-# Visual Studio build
-# Build with MSBuild and set the Visual Studio version property
-- task: VSBuild@1
-  inputs:
-    solution: '**\*.sln' 
-    vsVersion: '16.0'
-    #msbuildArgs: # Optional
-    #platform: # Optional
-    #configuration: # Optional
-    #clean: false # Optional
-    #maximumCpuCount: false # Optional
-    #restoreNugetPackages: false # Optional
-    #msbuildArchitecture: 'x86' # Optional. Options: x86, x64
-    #logProjectEvents: true # Optional
-    #createLogFile: false # Optional
-    #logFileVerbosity: 'normal' # Optional. Options: quiet, minimal, normal, detailed, diagnostic
-
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*.sln'
     configuration: 'Release'
-    buildForSimulator: true
-    packageApp: false
+    clean: true
+    packageApp: true
+    runNugetRestore: true
