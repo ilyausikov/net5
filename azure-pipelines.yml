@@ -22,9 +22,8 @@ steps:
   displayName: 'Use .NET Core sdk 5.0.100'
   inputs:
     packageType: 'sdk'
-    version: 5.x
+    version: '5.0.100'
     includePreviewVersions: true
-    performMultiLevelLookup: true
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
@@ -38,22 +37,3 @@ steps:
     configuration: 'Release'
     buildForSimulator: true
     packageApp: false
-
-# MSBuild
-# Build with MSBuild
-- task: MSBuild@1
-  inputs:
-    solution: '**/*.sln' 
-    #msbuildLocationMethod: 'version' # Optional. Options: version, location
-    msbuildVersion: '16.0' 
-    #msbuildArchitecture: 'x86' # Optional. Options: x86, x64
-    #msbuildLocation: # Optional
-    #platform: # Optional
-    #configuration: # Optional
-    #msbuildArguments: # Optional
-    clean: true
-    #maximumCpuCount: false # Optional
-    #restoreNugetPackages: false # Optional
-    #logProjectEvents: false # Optional
-    #createLogFile: false # Optional
-    #logFileVerbosity: 'normal' # Optional. Options: quiet, minimal, normal, detailed, diagnostic
