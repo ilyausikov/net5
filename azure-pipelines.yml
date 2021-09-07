@@ -38,7 +38,7 @@ steps:
     arguments: '"net5/net5.sln" "Debug" "iPhoneSimulator"'
 
 - task: Bash@3
-  displayName: 'Run script in run_tests.sh file'
+  displayName: 'Run Tests'
   inputs:
     filePath: 'net5/run_tests.sh'
-    arguments: '"net5/net5/net5.csproj" "Debug" "iPhoneSimulator"'
+    arguments: '"net5/net5/net5.csproj"'
