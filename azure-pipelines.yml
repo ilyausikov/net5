@@ -18,12 +18,6 @@ steps:
   displayName: 'Select the Xamarin SDK version'
   enabled: true
 
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '**/*.sln'
-
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*.sln'
