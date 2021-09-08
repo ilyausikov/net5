@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Download Mono 6.12.0.145
-wget https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-6.12.0.145.macos10.xamarin.universal.pkg
+export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
 
-# Add execution permission
-sudo chmod +x MonoFramework-MDK-6.12.0.145.macos10.xamarin.universal.pkg
-
-# Install Mono 6.12.0.145
-sudo installer -pkg MonoFramework-MDK-6.12.0.145.macos10.xamarin.universal.pkg -target /
+# Install preview version of Mono for C# 9 compat
+dotnet tool install --global boots --version 1.0.4.624
+boots --preview Mono
+boots --preview XamarinAndroid
+boots --preview XamariniOS
