@@ -37,11 +37,8 @@ steps:
     filePath: 'net5/build_ios.sh'
     arguments: '"net5/net5.sln" "Debug" "iPhoneSimulator"'
 
-- task: VSTest@2
+- task: Bash@3
+  displayName: 'Run Tests'
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    filePath: 'net5/run_tests.sh'
+    arguments: '"net5/net5/net5.csproj"'
